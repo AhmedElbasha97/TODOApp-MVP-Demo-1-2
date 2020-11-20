@@ -15,7 +15,7 @@ class AddToDoTaskVCPresenter{
     var delegate: AddToDoTaskVCPresenterDelegate!
     //MARK:- PUBLIC FUNC
     func senddata(task: String, completion: @escaping () -> Void){
-        if fieldIsNotEmpty(field:task){
+        if validation.fieldIsNotEmpty(field:task){
            SendTaskData(task: task)
             completion()
             self.delegate.Dismiss()

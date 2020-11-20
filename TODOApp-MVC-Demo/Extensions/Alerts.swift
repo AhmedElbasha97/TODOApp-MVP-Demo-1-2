@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 extension UIViewController{
+   //MARK:- showing alerts
     func showAlert(title: String, massage: String) {
         let alert = UIAlertController(title: "\(title)", message: "\(massage)", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "ok", style: UIAlertAction.Style.default, handler: nil))

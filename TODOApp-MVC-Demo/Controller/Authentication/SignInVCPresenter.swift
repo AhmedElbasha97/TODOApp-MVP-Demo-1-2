@@ -52,8 +52,8 @@ extension SignInVCPresenter{
 extension SignInVCPresenter{
     //MARK:- Fields Isn't Empty
     private func CheckFieldsIsNotEmpty(email: String, password: String) -> Bool {
-        if fieldIsNotEmpty(field: email){
-          if fieldIsNotEmpty(field: password){
+        if validation.fieldIsNotEmpty(field: email){
+          if validation.fieldIsNotEmpty(field: password){
               return true
           }else{
             self.delegate.PresentError(errorMassage: "please write your password")
@@ -66,8 +66,8 @@ extension SignInVCPresenter{
      }
     // MARK:- check validation
     private func checkValidation(email: String, password: String) -> Bool{
-        if isValidEmail(candidate:email){
-            if validpassword(mypassword: password){
+        if validation.isValidEmail(candidate:email){
+            if validation.validpassword(mypassword: password){
                  return true
                 
             }else{

@@ -31,7 +31,9 @@ class ProfileVCPresenter{
     }
     //MARK:- UpdateUserData
     func UpdateUserDate(name: String = "", age: String = "", email:String = ""){
-        self.checkVedlity(name: name, age: age, email: email)
+        if self.checkVedlition(name: name, age: age, email: email){
+             self.editUserProfile(name: name, age: age, email: email)
+        }
     }
     //MARK:- logOutTheUser
     func LoggingOut(){
@@ -66,7 +68,7 @@ extension ProfileVCPresenter{
                 self.GetUserImage(id: id)
             }else{
                 self.delegate.PresentError(errorMassage: "your image will not be uploaded please try again later")
-               
+              
             }
         }
     }
@@ -114,19 +116,23 @@ extension ProfileVCPresenter{
 //MARK:- validation
 extension ProfileVCPresenter{
     //MARK:- check validation
-    private func checkVedlity(name: String = "", age: String = "", email:String = ""){
-        if fieldIsNotEmpty(field: name){
-             self.editUserProfile(name: name, age: age, email: email)
-        }else if fieldIsNotEmpty(field: email){
-            if isValidEmail(candidate: email){
-                self.editUserProfile(name: name, age: age, email: email)
+    private func checkVedlition(name: String = "", age: String = "", email:String = "") -> Bool {
+        if validation.fieldIsNotEmpty(field: name){
+            return true
+        }else if validation.fieldIsNotEmpty(field: email){
+            if validation.isValidEmail(candidate: email){
+             return true
             }else{
                 self.delegate.PresentError(errorMassage: "please enter valid email")
                 }
-            }else if fieldIsNotEmpty(field: age){
-             self.editUserProfile(name: name, age: age, email: email)
+            }else if validation.fieldIsNotEmpty(field: age){
+        return true
         }else{
             self.delegate.PresentError(errorMassage: "please enter anything to edit your profile.")
+           
         }
+    
+    return false
+        
     }
 }
