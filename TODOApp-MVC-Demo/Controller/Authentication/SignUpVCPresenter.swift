@@ -44,10 +44,10 @@ extension SignUpVCPresenter{
 extension SignUpVCPresenter{
      //MARK:- Fields Isn't Empty
     private func CheckFieldsIsNotEmpty(name: String, Password:String, Email:String, Age:String) -> Bool{
-     if fieldIsNotEmpty(field: name){
-        if fieldIsNotEmpty(field: Email){
-          if fieldIsNotEmpty(field: Password){
-             if fieldIsNotEmpty(field: Age){
+        if validation.fieldIsNotEmpty(field: name){
+            if validation.fieldIsNotEmpty(field: Email){
+                if validation.fieldIsNotEmpty(field: Password){
+                    if validation.fieldIsNotEmpty(field: Age){
                  return true
              }else{
                 self.delegate.PresentError(errorMassage: "please write your age")
@@ -69,8 +69,8 @@ extension SignUpVCPresenter{
      }
      // MARK:- check validation
      private func checkValidation(Password:String, Email:String) -> Bool{
-         if isValidEmail(candidate: Email){
-             if validpassword(mypassword: Password){
+        if validation.isValidEmail(candidate: Email){
+             if validation.validpassword(mypassword: Password){
                  
                  return true
              }else{
