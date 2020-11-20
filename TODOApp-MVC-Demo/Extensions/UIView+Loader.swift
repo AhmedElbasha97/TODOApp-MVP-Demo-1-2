@@ -10,19 +10,19 @@ import Foundation
 import UIKit
 
 extension UIView {
-    
+    //MARK:- showing loader
     func showLoader() {
         let activityIndicator = setupActivityIndicator()
         activityIndicator.startAnimating()
         self.addSubview(activityIndicator)
     }
-    
+     //MARK:- showing loader
     func hideLoader() {
         if let activityIndicator = viewWithTag(333) {
             activityIndicator.removeFromSuperview()
         }
     }
-    
+     //MARK:- setting up loader
     private func setupActivityIndicator() -> UIActivityIndicatorView {
         let activityIndicator = UIActivityIndicatorView()
         activityIndicator.frame = self.bounds
